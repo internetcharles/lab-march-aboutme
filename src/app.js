@@ -33,14 +33,28 @@ function beginQuiz() {
         correctAnswers++;
     }
 
+    const capitalTest = prompt('Are you willing to donate at least 50 percent of your liquidity to my operation? (Y/N)');
+
+    // If true this adds to correctAnswers which is the parameter to determine the result
+    if (isYes(capitalTest) === true) {
+        correctAnswers++;
+    }
+
+    const cultTest = prompt('Are you ready to declare business as your new religion? (Y/N)');
+
+    // If true this adds to correctAnswers which is the parameter to determine the result
+    if (isYes(cultTest) === true) {
+        correctAnswers++;
+    }
+
     // Initial string built with name (composed of firstName and adjective)
     let response = 'Your name is ' + name;
 
-    if (correctAnswers >= 1) {
-        response += ' and you have passed the Wizard\'s Trial. Soon we will both be rich. Pretty cool.';
+    if (correctAnswers >= 2) {
+        response += ' and you have passed the Wizard\'s Trial with ' + correctAnswers + '/3 correct answers. Soon we will both be rich. Pretty cool.';
     }
     else {
-        response += ' and you have failed the Wizard\'s Trial. You have horrible business sense and by not partnering with me in this operation you have cost yourself millions!';
+        response += ' and you have failed the Wizard\'s Trial with ' + correctAnswers + '/3 correct answers.. You have horrible business sense and by not partnering with me in this operation you have cost yourself millions!';
     }
     // Editing the html response
     result.textContent = response;
